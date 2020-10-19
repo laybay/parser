@@ -746,10 +746,10 @@ type PartitionInfo struct {
 	DroppingDefinitions []PartitionDefinition `json:"dropping_definitions"`
 	Num                 uint64                `json:"num"`
 
-	// ExtractExprCache is filled when first time get partition expr AST.
-	ExtractExprCache struct {
+	// ByExprCache is filled when first time get partition expr.
+	ByExprCache struct {
 		sync.Once
-		// Items will be assign []ast.ExprNode, but use interface{} to reduce cycle.
+		// Items will be assign []expression.Expression, but use interface{} to reduce cycle.
 		Items interface{}
 	} `json:"-"`
 }
